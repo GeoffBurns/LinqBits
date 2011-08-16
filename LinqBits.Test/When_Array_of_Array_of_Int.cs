@@ -69,5 +69,15 @@ namespace LinqBits.Test
             // Assert
             Assert.AreEqual(s, "{},{1},{2,3}");
         }
+        [Test]
+        public void Then_WithSeparator_ToJoinStringBuilder_Should_produce_valid_string()
+        {
+            // Arrange
+            var ar = new[] { new int[] { }, new[] { 1 }, new[] { 2, 3 } };
+            // Act
+            var s = ar.WithSeparator("{", ",", "}").ToJoinedString((a, sb) => a.ToJoinedStringBuilder(sb));
+            // Assert
+            Assert.AreEqual(s, "{,1,23}");
+        }
     }
 }

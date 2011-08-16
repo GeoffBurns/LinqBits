@@ -36,10 +36,6 @@ namespace LinqBits
         /// <summary>
         /// Join a sequence of object using convertToString
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="convertToString"> conversion function</param>
-        /// <returns></returns>
         public static string ToJoinedString<T>(this IEnumerable<T> source,
                                                   Func<T, string> convertToString)
         {
@@ -159,10 +155,9 @@ namespace LinqBits
         /// </summary>
         public static string ToJoinedString<T>(this IEnumerable<T> source,
                                                    string start,
-                                       
                                                     Action<T, StringBuilder> addToStringBuilder,
-                                       string separator,
-                                       string finish)
+                                                    string separator,
+                                                    string finish)
         {
             return new StringBuilder()
                    .StringBuilderJoin(source, start, addToStringBuilder, separator, finish)

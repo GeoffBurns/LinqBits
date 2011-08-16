@@ -16,5 +16,16 @@ namespace LinqBits.Test
             // Assert
             Assert.That(s.Equals("123"));
         }
+
+        [Test]
+        public void Then_WithSeparator_ToJoinString_Should_produce_valid_string()
+        {
+            // Arrange
+            var ar = new[] { 1, 2, 3 };
+            // Act
+            var s = ar.WithSeparator("{",",","}").ToJoinedString();
+            // Assert
+            Assert.AreEqual(s,"{1,2,3}");
+        }
     }
 }
